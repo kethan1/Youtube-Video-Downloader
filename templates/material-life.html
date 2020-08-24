@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>YouTube Downloader</title>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  <!-- Icon -->
+  <link rel="shortcut icon" href="{{ url_for('static', filename = 'Images/icon.png') }}">
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+
+<body style="margin-top:12%;">
+
+	<div>
+		{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+			<script>
+				M.toast({
+					html: '<span>{{ message }}</span><button class="btn-flat toast-action" style="color: white;" onclick="M.Toast.dismissAll();">X</button>',
+					classes: 'rounded'
+				})
+			</script>
+		{% endfor %} {% endif %} {% endwith %}
+	</div>
+
+      <form action="" method="post">
+          <div class="card z-depth-0">
+            <div class="card-content">
+              <span class="card-title">
+                <h5>YouTube Downloader</h5>
+                <p>DISCLAIMER!! This is for demo purposes ONLY. This violates Youtube's Content Sharing Policy. </p>
+              </span>
+              <div class="row">
+                <div class="input-field col s12 m10">
+                  <input id="text" type="text" class="validate" name="url" value="{{request.form.url}}">
+                  <label for="text">YouTube URL</label>
+                </div>
+                <div class="input-field col s12 m2">
+                  <button data-target="modal1" class="waves-effect waves-light btn z-depth-4 grey darken-4">Type</button>
+
+                  <!-- Modal Structure -->
+                  <div class="">
+                    <div id="modal1" class="modal">
+                      <div class="modal-content">
+                        <h4>Type</h4>
+
+                        <p style="margin:2% 0 1%;">
+                          <input name="submit" value="2" type="radio" id="test2" checked/>
+                          <label class="grey-text text-darken-3" for="test2">Video (.mp4)</label>
+                        </p>
+
+                        <p style="margin:2% 0 1%;">
+                          <input name="submit" value="1" type="radio" id="test1"/>
+                          <label class="grey-text text-darken-3" for="test1">Audio (.mp3)</label>
+                        </p>
+
+                        </p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="modal-action modal-close waves-effect waves-black btn-flat grey darken-4 z-depth-4 white-text">Go</button>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+      </form>
+
+  </div>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+    $(document).ready(function() {
+      // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+      $('.modal').modal();
+    });
+  </script>
+</body>
+
+</html>
