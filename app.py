@@ -49,7 +49,7 @@ def home_page():
 
     if request.method == "GET":
 
-            return render_template("material-life.html")
+            return render_template("downloader.html")
 
     elif request.method == "POST":
 
@@ -65,10 +65,10 @@ def home_page():
                 return redirect(url_for("return_file"))
             else:
                 flash('URL Not From Youtube')
-                return render_template( "material-life.html")
+                return render_template("downloader.html")
         else:
             flash('URL is Empty')
-            return render_template("material-life.html")
+            return render_template("downloader.html")
 
 
 if __name__ == "__main__":
