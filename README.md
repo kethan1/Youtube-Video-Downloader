@@ -1,6 +1,6 @@
 # Youtube-Video-Downloader
 
-This is a simple youtube video downloader made using pytube3.
+This is a simple youtube video downloader made using flask and pytube3.
 
 To run the app, navigate to the project directory and do the following.
 
